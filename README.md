@@ -48,19 +48,25 @@ Brings up the output panel with the tests results. This comes up automatically a
 
 You can bring up the sublime console Ctrl+` and see the command that the plugin invoked to run the tests.
 
-You can also add shortcut keys in your key bindings file like so
+The plugin adds the following key bindings. The key bindings provide the ability to run a specific test in a file or all tests.
 
 ```
 [
   {
     "keys": ["ctrl+alt+m"], "command": "mocha_test_runner"
+  },
+  {
+    "keys": ["ctrl+shift+alt+m"], "command": "mocha_test_runner", "args": {"previous": true}
   }
 ]
 ```
-Invoking the plugin via the key bindings gives the additional flexibility of running specific tests within the test file. 
+
 - `ctrl-alt-m` runs either:
   - the current test file
   - or a single `it` / `describe` if the cursor is on that line
+
+- `ctrl-alt-shift-m` re-runs the last test selection
+  - even if you switched to another file
 
 The plugin invokes mocha with the --grep option to run specific test in a file
 
