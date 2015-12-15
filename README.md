@@ -41,7 +41,7 @@ The plugin adds the following commands to the Sublime Command Palette
 This will run all the tests in the file that is active
 
 ```Run previous test```
-The plugin remembers the lats run test. If you are swithcing back and forth between code and the test code, this command will run the tests regardless of the active file
+The plugin remembers the last run test. If you are swithcing back and forth between code and the test code, this command will run the tests regardless of the active file for fast TDD feedback loops
 
 ```Show output panel```
 Brings up the output panel with the tests results. This comes up automatically after the tests are run. But you can bring it up again if you closed it.
