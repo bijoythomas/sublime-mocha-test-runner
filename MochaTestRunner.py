@@ -32,7 +32,7 @@ class MochaTestRunnerCommand(sublime_plugin.TextCommand):
     selection = self.view.sel()[0]
     line = self.view.line(selection.b)
     line_text = self.view.substr(line)
-    mocha_command = 'mocha -R tap'
+    mocha_command = 'mocha'
 
     if 'previous' in args:
       print('Using previous command')
