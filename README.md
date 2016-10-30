@@ -74,4 +74,4 @@ Reporting
 =========
 The output of the mocha command is made available in a panel which comes up after the mocha command is run.
 
-
+![Test Output Panel in Sublime](https://github.com/bijoythomas/sublime-mocha-test-runner/blob/master/output_panel.png)
