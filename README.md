@@ -72,4 +72,6 @@ The plugin invokes mocha with the --grep option to run specific test in a file
 
 Reporting
 =========
-The output of the mocha command is made available in a panel which comes up after the mocha command is run. Because the standard panel supports only ascii characters, the mocha command is run with the TAP reporting option.
+The output of the mocha command is made available in a panel which comes up after the mocha command is run.
+
+
