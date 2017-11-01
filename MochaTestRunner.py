@@ -2,6 +2,7 @@ import sublime
 import sublime_plugin
 import subprocess
 import re
+import os
 
 class MochaTestRunnerCommand(sublime_plugin.TextCommand):
 
@@ -34,15 +35,16 @@ class MochaTestRunnerCommand(sublime_plugin.TextCommand):
     line_text = self.view.substr(line)
     mocha_command = 'mocha'
 
+    filename = os.path.basename(self.view.file_name())
+    dirname = os.path.dirname(self.view.file_name())
     if 'previous' in args:
-      print('Using previous command')
       mocha_command = MochaTestRunnerCommand.state.get(self.view.window().id(), {}).get('command')
     elif 'all_tests' in args:
-      mocha_command = mocha_command + ' ' + self.view.file_name()
+      mocha_command = 'cd ' + dirname + ';' + mocha_command + ' ' + filename
     elif line_text.find('describe') != -1 or line_text.find('it') != -1:
-      mocha_command = mocha_command + ' --grep ' + re.search("'(.*)'", line_text).group() + ' ' + self.view.file_name()
+      mocha_command = 'cd ' + dirname + ';' + mocha_command + ' --grep ' + re.search("'(.*)'", line_text).group() + ' ' + filename
     else:
-      mocha_command = mocha_command + ' ' + self.view.file_name()
+      mocha_command = 'cd ' + dirname + ';' + mocha_command + ' ' + filename
 
     self.show_tests_panel()
     print('Running ' + mocha_command)
