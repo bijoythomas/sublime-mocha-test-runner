@@ -33,7 +33,7 @@ class MochaTestRunnerCommand(sublime_plugin.TextCommand):
     selection = self.view.sel()[0]
     line = self.view.line(selection.b)
     line_text = self.view.substr(line)
-    mocha_command = 'mocha'
+    mocha_command = 'mocha --exit'
 
     filename = os.path.basename(self.view.file_name())
     dirname = os.path.dirname(self.view.file_name())
